@@ -31,7 +31,7 @@ unsigned int faStr1(const char *str) {
 
 unsigned int faStr2(const char *str) {
     bool inWord = false;
-    bool isZLat = false;
+    bool isCLat = false;
     bool isFirst = false;
     bool isSLat = false;
     int wordCount = 0;
@@ -42,11 +42,11 @@ unsigned int faStr2(const char *str) {
             if (!isFirst) {
                 isFirst = true;
                 if (str[i] >= 'A' && str[i] <= 'Z') {
-                    isZLat = true;
+                    isCLat = true;
                     isSLat = true;
                 }
             } else if (isFirst) {
-                if (isZLat) {
+                if (isCLat) {
                     if (!(str[i] >= 'a' && str[i] <= 'z')) {
                         isSLat = false;
                     }
@@ -58,7 +58,7 @@ unsigned int faStr2(const char *str) {
                     wordCount++;
                 }
                 isFirst = false;
-                isZLat = false;
+                isCLat = false;
                 inWord = false;
             }
         }
